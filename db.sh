@@ -10,6 +10,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+echo "Please enter DB password:"
+read -s mysql_root_password
 
 if [ $USERID -ne 0 ]
 then
@@ -36,6 +38,14 @@ VALIDATE $? "enable mysqld"
 systemctl start mysqld
 VALIDATE $? "start mysqld"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
-VALIDATE $? "set root password sucuessfully"
+mysql -h db.srikantheswar.online -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
+
+if [ $? -ne 0 ]
+then 
+    echo "mysql_secure_installation --set-root-pass ${mysql_root_password}
+    VALIDATE $? "set root password sucuessfully"
+else 
+    echo  -e "root password is already set up $Y skipping $N"
+
+
 
