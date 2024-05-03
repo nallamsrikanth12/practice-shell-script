@@ -30,3 +30,12 @@ VALIDATE (){
 dnf install mysql-server -y
 VALIDATE $? "installl mysql"
 
+systemctl enable mysqld
+VALIDATE $? "enable mysqld"
+
+systemctl start mysqld
+VALIDATE $? "start mysqld"
+
+mysql_secure_installation --set-root-pass ExpenseApp@1
+VALIDATE $? "set root password sucuessfully"
+
