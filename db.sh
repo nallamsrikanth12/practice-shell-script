@@ -46,6 +46,7 @@ then
     VALIDATE $? "set root password sucuessfully"
 else 
     echo  -e "root password is already set up $Y skipping $N"
+fi
 
 
 
