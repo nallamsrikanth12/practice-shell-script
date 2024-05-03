@@ -49,9 +49,8 @@ fi
 mkdir -p /app
 VALIDATE $? "create app directory"
 
-curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE
-VALIDATE $? "doenload the backend code"
-
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+VALIDATE $? "download the backend code"
 cd /app
 rm -rf /app/*
 
