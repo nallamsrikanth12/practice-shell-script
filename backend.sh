@@ -78,6 +78,7 @@ dnf install mysql -y
 VALIDATE $? "install the mysql"
 
 mysql -h <db.srikantheswar.online> -uroot -p${sql_root_password} < /app/schema/backend.sql &>>LOGFILE
+VALIDATE $? "set root password"
 
 
 
