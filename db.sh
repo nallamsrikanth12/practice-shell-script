@@ -42,11 +42,11 @@ mysql -h db.srikantheswar.online -uroot -p${mysql_root_password} -e 'show databa
 
 if [ $? -ne 0 ]
 then 
-    echo "mysql_secure_installation --set-root-pass ${mysql_root_password}
+    echo "mysql_secure_installation --set-root-pass ${mysql_root_password}"
     VALIDATE $? "set root password sucuessfully"
 else 
     echo  -e "root password is already set up $Y skipping $N"
-fi
 
+fi
 
 
